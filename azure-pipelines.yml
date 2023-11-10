@@ -1,16 +1,16 @@
 steps:
   - task: AzureCLI@2
     displayName: "Copy Install Script"
-    inputs:
-    managedIdentity: '/subscriptions/cbf8b966-9488-4fc7-a133-b65c3b0285a8/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testmangedid'
-    imageSource: 'marketplace'
-    baseImage: 'MicrosoftWindowsServer:WindowsServer:2019-Datacenter'
-    provisioner: 'powershell'
-    windowsUpdateProvisioner: true
-    runElevated: true
-    runAsSystem: true
-    packagePath: '$(System.DefaultWorkingDirectory)'
-    inlineScript: |
+      inputs:
+      managedIdentity: '/subscriptions/cbf8b966-9488-4fc7-a133-b65c3b0285a8/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testmangedid'
+      imageSource: 'marketplace'
+      baseImage: 'MicrosoftWindowsServer:WindowsServer:2019-Datacenter'
+      provisioner: 'powershell'
+      windowsUpdateProvisioner: true
+      runElevated: true
+      runAsSystem: true
+      packagePath: '$(System.DefaultWorkingDirectory)'
+      inlineScript: |
       # Define source and destination paths
       $sourcePath = "C:\Build\Temporary"
       $destinationPath = "C:\Build\Persistent"
@@ -40,4 +40,3 @@ steps:
     ibSubscription: 'anugrah pay as you go(cbf8b966-9488-4fc7-a133-b65c3b0285a8)'
     ibAzureResourceGroup: 'testrg'
     ibLocation: 'uksouth'
-    
