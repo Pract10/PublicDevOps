@@ -7,7 +7,7 @@ steps:
     imageSource: marketplace
     baseImage: 'MicrosoftWindowsDesktop:Windows-10:19h1-evd'
     baseImagePubOfferSku: 'MicrosoftWindowsDesktop:windows-10:20h2-evd '
-    provisioner: powershell
+    provisioner: 'powershell'
     windowsUpdateProvisioner: true
     packagePath: '$(System.DefaultWorkingDirectory)/_WVD_POC/WVD'
     inlineScript: '''& set-executionpolicy remotesigned -scope Process -Force; c:\BuildArtifacts\WVD\win10.ps1'''
