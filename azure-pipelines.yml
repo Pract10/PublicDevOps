@@ -7,6 +7,7 @@ steps:
       baseImage: 'MicrosoftWindowsServer:WindowsServer:2019-Datacenter'
       provisioner: 'powershell'
       packagePath: '$(System.DefaultWorkingDirectory)'
+      scriptType:  'PowerShell'
       inlineScript: '''& set-executionpolicy remotesigned -scope Process -Force; c:\BuildArtifacts'''
       storageAccountName: 'testzsq'
       imageIdForDistribute: '/subscriptions/cbf8b966-9488-4fc7-a133-b65c3b0285a8/resourceGroups/testrg/providers/Microsoft.Compute/galleries/imagegall'
