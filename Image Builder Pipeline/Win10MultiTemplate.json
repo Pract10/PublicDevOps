@@ -27,7 +27,7 @@
         "identity": {
           "type": "UserAssigned",
           "userAssignedIdentities": {
-            "<UserAssignedID>": {}
+            "testmangedid": {}
           }
         },
         "properties": {
@@ -61,18 +61,18 @@
                 "c:\\temp\\azcopy.exe copy '<ArchiveSource>' c:\\temp\\software.zip",
                 "Expand-Archive 'c:\\temp\\software.zip' c:\\temp"
               ]
-            },
-            {
-              "type": "PowerShell",
-              "runElevated": true,
-              "name": "RunPoShInstall",
-              "scriptUri": "<ScriptSource>"
             }
+            //{
+             // "type": "PowerShell",
+              //"runElevated": true,
+             // "name": "RunPoShInstall",
+             // "scriptUri": "<ScriptSource>"
+            //}
           ],
           "distribute": [
             {
               "type": "SharedImage",
-              "galleryImageId": "<SharedImageGalleryID>",
+              "galleryImageId": "/subscriptions/cbf8b966-9488-4fc7-a133-b65c3b0285a8/resourceGroups/testrg/providers/Microsoft.Compute/galleries/imagegall",
               "runOutputName": "win10Client",
               "artifactTags": {
                 "environment": "Lab",
