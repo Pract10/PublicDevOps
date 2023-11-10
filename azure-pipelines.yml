@@ -12,9 +12,9 @@ steps:
       runAsSystem: true
       packagePath: '$(System.DefaultWorkingDirectory)'
       inlineScript: |
-      # Define source and destination paths
-      $sourcePath = "C:\Build\Temporary"
-      $destinationPath = "C:\Build\Persistent"
+        # Define source and destination paths
+        $sourcePath = "C:\Build\Temporary"
+        $destinationPath = "C:\Build\Persistent"
        
       # Move build files from temporary to persistent location
       try {
