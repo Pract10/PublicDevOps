@@ -17,5 +17,5 @@ steps:
     replicationRegions: 'westeurope,northeurope'
     ibSubscription: 'ALVENTECH (0000-0000-000-0000-00000000)'
     ibAzureResourceGroup: 'testrg
-    ibLocation: 'uksouth'
+    ibLocation:'uksouth'
     vmSize: 'Standard_D2s_v3'
