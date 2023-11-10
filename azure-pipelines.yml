@@ -1,7 +1,7 @@
 stages:
   - stage: "copy"
     jobs:
-      - job: Azure image builder
+      - job: "Azureimagebuilder"
         steps:
           - task: AzureImageBuilderTask@1
             inputs:
