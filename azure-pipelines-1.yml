@@ -16,6 +16,6 @@ steps:
     galleryImageId: '/subscriptions/cbf8b966-9488-4fc7-a133-b65c3b0285a8/resourceGroups/testrg/providers/Microsoft.Compute/galleries/imagegall'
     replicationRegions: 'westeurope,northeurope'
     ibSubscription: 'ALVENTECH (0000-0000-000-0000-00000000)'
-    ibAzureResourceGroup: 'testrg
+    ibAzureResourceGroup: 'testrg'
     ibLocation:'uksouth'
     vmSize: 'Standard_D2s_v3'
