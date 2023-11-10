@@ -1,42 +1,42 @@
 steps:
-- task: AzureCLI@2
-displayName: "Copy Install Script"
-inputs:
-managedIdentity: '/subscriptions/cbf8b966-9488-4fc7-a133-b65c3b0285a8/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testmangedid'
-imageSource: 'marketplace'
-baseImage: 'MicrosoftWindowsServer:WindowsServer:2019-Datacenter'
-provisioner: 'powershell'
-windowsUpdateProvisioner: true
-runElevated: true
-runAsSystem: true
-packagePath: '$(System.DefaultWorkingDirectory)'
-inlineScript: |
-# Define source and destination paths
-$sourcePath = "C:\Build\Temporary"
-$destinationPath = "C:\Build\Persistent"
-
-# Move build files from temporary to persistent location
-try {
-# Check if the destination directory exists, and create it if not
-if (-not (Test-Path -Path $destinationPath)) {
-New-Item -Path $destinationPath -ItemType Directory
-}
-# Copy files from the source to the destination
-Copy-Item -Path $sourcePath\* -Destination $destinationPath -Force
-
-Write-Output "Files moved successfully."
-}
-catch {
-Write-Error "An error occurred while moving files: $_"
-exit 1  # Exit with a non-zero status code to indicate failure
-}
-
-# Add customizations to the image (you can add your specific customizations here)
-# For example, you can install software, configure settings, etc.
-storageAccountName: 'testzsq'
-distributeType: 'sig'
-galleryImageId: '/subscriptions/cbf8b966-9488-4fc7-a133-b65c3b0285a8/resourceGroups/testrg/providers/Microsoft.Compute/galleries/imagegall'
-replicationRegions: 'uksouth'
-ibSubscription: 'anugrah pay as you go(cbf8b966-9488-4fc7-a133-b65c3b0285a8)'
-ibAzureResourceGroup: 'testrg'
-ibLocation: 'uksouth'
+  - task: AzureCLI@2
+    displayName: "Copy Install Script"
+    inputs:
+    managedIdentity: '/subscriptions/cbf8b966-9488-4fc7-a133-b65c3b0285a8/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testmangedid'
+    imageSource: 'marketplace'
+    baseImage: 'MicrosoftWindowsServer:WindowsServer:2019-Datacenter'
+    provisioner: 'powershell'
+    windowsUpdateProvisioner: true
+    runElevated: true
+    runAsSystem: true
+    packagePath: '$(System.DefaultWorkingDirectory)'
+    inlineScript: |
+      # Define source and destination paths
+      $sourcePath = "C:\Build\Temporary"
+      $destinationPath = "C:\Build\Persistent"
+       
+      # Move build files from temporary to persistent location
+      try {
+          # Check if the destination directory exists, and create it if not
+          if (-not (Test-Path -Path $destinationPath)) {
+              New-Item -Path $destinationPath -ItemType Directory
+          }
+          # Copy files from the source to the destination
+          Copy-Item -Path $sourcePath\* -Destination $destinationPath -Force
+       
+          Write-Output "Files moved successfully."
+      }
+      catch {
+          Write-Error "An error occurred while moving files: $_"
+          exit 1  # Exit with a non-zero status code to indicate failure
+      }
+       
+      # Add customizations to the image (you can add your specific customizations here)
+      # For example, you can install software, configure settings, etc.
+    storageAccountName: 'testzsq'
+    distributeType: 'sig'
+    galleryImageId: '/subscriptions/cbf8b966-9488-4fc7-a133-b65c3b0285a8/resourceGroups/testrg/providers/Microsoft.Compute/galleries/imagegall'
+    replicationRegions: 'uksouth'
+    ibSubscription: 'anugrah pay as you go(cbf8b966-9488-4fc7-a133-b65c3b0285a8)'
+    ibAzureResourceGroup: 'testrg'
+    ibLocation: 'uksouth'
